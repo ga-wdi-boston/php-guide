@@ -18,25 +18,25 @@ By the end of this, developers should have:
 
 ## Preparation
 
-1.  [Fork and clone](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone)
-    this repository.
-1.  Create a new branch, `training`, for your work.
+1.  None. These are preparation steps for getting your PHP development
+ environment set up.
 
 ## Installing/Updating PHP
 
 We should be working with PHP 7. Test which version is installed on your
 machine by running `php -v` from the command line. It is likely lower than 7,
 therefore we'll use [php-version](https://github.com/wilmoore/php-version) to
-manage our PHP versions (similar to `rbenv` and `nvm`).
+manage our PHP versions (similar to `rbenv` and `nvm`). Run the following from
+the command line:
 
-MacOS:
+**MacOS**
 
 ```bash
 brew tap homebrew/homebrew-php
 brew install php-version
 ```
 
-Linux:
+**Linux**
 
 ```bash
 mkdir -p $HOME/local/php-version
@@ -44,19 +44,19 @@ cd !$
 curl -# -L https://github.com/wilmoore/php-version/tarball/master | tar -xz --strip 1
 ```
 
-Then add the following to your `~/.bashrc`:
+Then add the following to your `~/.bashrc` (open with `atom ~/.bashrc`):
 
-MacOS:
+**MacOS**
 
 ```bash
-# Homebrew (recommended)
+# PHP 7.0
 source $(brew --prefix php-version)/php-version.sh && php-version 7
 ```
 
-Linux:
+**Linux**
 
 ```bash
-# non-Homebrew
+# PHP 7.0
 source $HOME/local/php-version/php-version.sh && php-version 7
 ```
 
@@ -94,7 +94,7 @@ Now run:
 atom ~/.homestead/Homestead.yaml
 ```
 
-and *change*:
+and **change**:
 
 ```yaml
 folders:
@@ -141,7 +141,7 @@ Paste the following:
 192.168.10.10  homestead.app
 ```
 
-If you did not have `/etc/hosts`, please `touch /etc/hosts` and paste all of the above.
+**If you did not have `/etc/hosts`**, please `touch /etc/hosts` and paste all of the above.
 
 ### Launching Vagrant
 
@@ -155,6 +155,8 @@ You can then navigate to your app from [http://homestead.app](http://homestead.a
 
 ## Installing Laravel
 
+Laravel is the most popular choice for application development in PHP. 
+
 -  From the command line, run `composer global require "laravel/installer"`
 -  Then, `atom ~/.bashrc` and paste the following:
 
@@ -166,11 +168,13 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.composer/vendor
 You now have access to the Laravel CLI. Test this by running `laravel` from the
 command line. You should see output containing "Usage", "Options", etc.
 
-We're interested in the `laravel new <directory-name>` command.
+The `laravel new <directory-name>` command is what we would be interested in to
+generate a new Laravel application.
 
 ## Additional Resources
 
--  [Laravel 5.3 Installation Docs](https://laravel.com/docs/5.3#installing-laravel)
+- [PHP Docs](http://php.net/manual/en/)
+- [Laravel 5.3 Installation Docs](https://laravel.com/docs/5.3#installing-laravel)
 
 ## [License](LICENSE)
 
