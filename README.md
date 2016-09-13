@@ -1,104 +1,176 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Talk Template
-
-Use this template to structure your READMEs for talks. Remove text from this
-section, or use it to frame the talk you are giving. Good framing answers the
-question "Why am I learning this?".
-
-Be sure to include a recent [`LICENSE`](LICENSE) and Markdown linter
-configuration ([`.remarkrc`](.remarkrc)). Also, include an appropriate
-`.gitignore`; these are usually found in specific technology templates, for
-example [js-template](https://www.github.com/ga-wdi-boston/js-template).
+# PHP Guide
 
 ## Prerequisites
 
--   Topics with which developers should be familiar with.
--   Prerequisites are "just-in-time", so if I have a prerequisite that mentions
-    Sass, I would **not** need to include CSS as a prerequisite.
--   [Links to previous materials](https://www.github.com/ga-wdi-boston/example)
-    are often useful.
+-   None
 
 ## Objectives
 
-By the end of this, developers should be able to:
+By the end of this, developers should have:
 
--   Write objectives that focus on demonstrating knowledge.
--   Write learning objectives that begin with an [imperative
-    verb](https://en.wikipedia.org/wiki/Imperative_mood).
--   Avoid objectives that start with "Use" or "Understand".
--   Rewrite objecives that begin with "Use" by inverting sentence structure.
--   End each objective with a period.
--   Write objectives on the whiteboard so they can be referenced during a talk.
+-  PHP 7.0 installed
+-  VirtualBox installed
+-  Vagrant Installed
+-  Homestead installed and configured
+-  Laravel installed through Composer
 
 ## Preparation
 
 1.  [Fork and clone](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone)
     this repository.
 1.  Create a new branch, `training`, for your work.
-1.  Install dependencies with `npm install`.
 
-Better preparation instructions may be found as
-[snippets](https://github.com/ga-wdi-boston/instructors/tree/master/snippets).
+## Installing/Updating PHP
 
-It's a good idea to have students do these steps while you're writing objectives
-on the whiteboard.
+We should be working with PHP 7. Test which version is installed on your
+machine by running `php -v` from the command line. It is likely lower than 7,
+therefore we'll use [php-version](https://github.com/wilmoore/php-version) to
+manage our PHP versions (similar to `rbenv` and `nvm`).
 
-## Leading Topic Heading
+MacOS:
 
-Here is where the talk begins. If you have not already included framing above,
-it's appropriate to put it here. Link to introductory articles or documentation.
-Motivate the next section.
+```bash
+brew tap homebrew/homebrew-php
+brew install php-version
+```
 
-Demos, exercises, and labs are labelled as such, followed by a colon and a
-description of the activity starting with an [imperative
-verb](https://en.wikipedia.org/wiki/Imperative_mood).
+Linux:
 
-## Demo: Write a Demo
+```bash
+mkdir -p $HOME/local/php-version
+cd !$
+curl -# -L https://github.com/wilmoore/php-version/tarball/master | tar -xz --strip 1
+```
 
-Demos are demonstrations, and developers should give their full attention to
-them. It's a great time for them to take notes about important concepts before
-applying them in an exercise.
+Then add the following to your `~/.bashrc`:
 
-Demos correspond to the "I do" portion of scaffolding from consultant training.
+MacOS:
 
-## Exercise: Write an Exercise
+```bash
+# Homebrew (recommended)
+source $(brew --prefix php-version)/php-version.sh && php-version 7
+```
 
-During exercises, developers should apply concepts covered in the previous demo.
-This is their first chance to generalize concepts introduced. Exercises should
-be very focused, and flow natural into a lab.
+Linux:
 
-Exercises correspond to the "We do" portion of scaffolding from consultant
-training.
+```bash
+# non-Homebrew
+source $HOME/local/php-version/php-version.sh && php-version 7
+```
 
-## Lab: Write a Lab
+Then, from the command line, run:
 
-During labs, developers get to demonstrate their understanding of concepts from
-demos and applied knowledge from exercises. Labs are an opportunity for
-developers to build confidence, and also serve as a diagnostic tool for
-consultants to evaluate developer understanding.
+```bash
+php-version 7
+```
 
-Labs should be timed explicitly using a timer. When estimating the time it will
-take to complete a lab, it is better to overestimate. During labs, consultants
-should circle the room and interact with developers, noting patterns and
-prompting with hints on how to complete the lab. If developers end early, a
-consultant may stop the lab timer. If developers do not finish in time, a
-consultant may give more time at her discretion based on current talk pace, the
-current estimate for the talk, and the importance of completing the lab while
-consultant support is available.
+Confirm that you are running PHP 7.0 with `php-v`.
 
-Labs correspond to the "You do" portion of scaffolding from consultant
-training.
+## Installing Homestead
+
+### Virtual Box and Vagrant
+
+-  Download and Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+-  Download and Install [Vagrant](https://www.vagrantup.com/downloads.html)
+-  Add Homestead to your Vagrant box by running the following from the command
+ line:
+
+```bash
+vagrant box add laravel/homestead
+```
+
+Now, install Homestead itself by doing the following:
+
+-  `cd ~`
+-  `git clone https://github.com/laravel/homestead.git Homestead`
+-  `cd Homestead`
+-  `bash init.sh`
+
+Now run:
+
+```bash
+atom ~/.homestead/Homestead.yaml
+```
+
+and *change*:
+
+```yaml
+folders:
+    - map: ~/Code
+      to: /home/vagrant/Code
+```
+
+to:
+
+```yaml
+folders:
+    - map: ~/wdi/training/php-laravel
+      to: /home/vagrant/Code
+```
+
+Feel free to read the [Laravel docs on Homestead](https://laravel.com/docs/5.3/homestead)
+to learn more about configuration options.
+
+### Virtual Hosts
+
+We'll need to modify our machine's hosts. From the command line run:
+
+```bash
+atom /etc/hosts
+```
+
+Below:
+
+```sh
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+```
+
+Paste the following:
+
+```bash
+192.168.10.10  homestead.app
+```
+
+If you did not have `/etc/hosts`, please `touch /etc/hosts` and paste all of the above.
+
+### Launching Vagrant
+
+Run `vagrant up` from `~/Homestead`.
+
+> Note: Vagrant will continue running in the background of your machine. If you
+> need to verify its status, run `vagrant status`. If you need to shut Vagrant
+> down, run `vagrant halt`.
+
+You can then navigate to your app from [http://homestead.app](http://homestead.app)
+
+## Installing Laravel
+
+-  From the command line, run `composer global require "laravel/installer"`
+-  Then, `atom ~/.bashrc` and paste the following:
+
+```ruby
+# Laravel
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.composer/vendor/bin/"
+```
+
+You now have access to the Laravel CLI. Test this by running `laravel` from the
+command line. You should see output containing "Usage", "Options", etc.
+
+We're interested in the `laravel new <directory-name>` command.
 
 ## Additional Resources
 
--   Any useful links should be included in the talk material where the link is
-    first referenced.
--   Additional links for further study or exploration are appropriate in this
-    section.
--   Links to important parts of documentation not covered during the talk, or
-    tools tangentially used but not part of the focus of the talk, are also
-    appropriate.
+-  [Laravel 5.3 Installation Docs](https://laravel.com/docs/5.3#installing-laravel)
 
 ## [License](LICENSE)
 
