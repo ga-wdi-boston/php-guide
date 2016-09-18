@@ -49,21 +49,21 @@ Then add the following to your `~/.bashrc` (open with `atom ~/.bashrc`):
 **MacOS**
 
 ```bash
-# PHP 7.0
-source $(brew --prefix php-version)/php-version.sh && php-version 7
+# php-version
+source $(brew --prefix php-version)/php-version.sh && php-version 7.0
 ```
 
 **Linux**
 
 ```bash
-# PHP 7.0
-source $HOME/local/php-version/php-version.sh && php-version 7
+# php-version
+source $HOME/local/php-version/php-version.sh && php-version 7.0
 ```
 
 Then, from the command line, run:
 
 ```bash
-php-version 7
+php-version 7.0
 ```
 
 Confirm that you are running PHP 7.0 with `php-v`.
@@ -155,7 +155,7 @@ You can then navigate to your app from [http://homestead.app](http://homestead.a
 
 ## Installing Laravel
 
-Laravel is the most popular choice for application development in PHP. 
+Laravel is the most popular choice for application development in PHP.
 
 -  From the command line, run `composer global require "laravel/installer"`
 -  Then, `atom ~/.bashrc` and paste the following:
