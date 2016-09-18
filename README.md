@@ -60,13 +60,19 @@ source $(brew --prefix php-version)/php-version.sh && php-version 7.0
 source $HOME/local/php-version/php-version.sh && php-version 7.0
 ```
 
-Then, from the command line, run:
+Quit and reopen Terminal. Then, from the command line, run:
+
+```bash
+php -v
+```
+
+If your output doesn't indicate 7.0, please run the following:
 
 ```bash
 php-version 7.0
 ```
 
-Confirm that you are running PHP 7.0 with `php-v`.
+Confirm that you are now running PHP 7.0 with `php-v`.
 
 ## Installing Homestead
 
