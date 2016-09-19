@@ -26,14 +26,15 @@ By the end of this, developers should have:
 We should be working with PHP 7. Test which version is installed on your
 machine by running `php -v` from the command line. It is likely lower than 7,
 therefore we'll use [php-version](https://github.com/wilmoore/php-version) to
-manage our PHP versions (similar to `rbenv` and `nvm`). Run the following from
-the command line:
+manage our PHP versions (similar to `rbenv` and `nvm`).
 
 First, let's install PHP 7.0 onto our machines:
 
 ```bash
 curl -s http://php-osx.liip.ch/install.sh | bash -s 7.0
 ```
+
+Then, run the following from the command line:
 
 **MacOS**
 
