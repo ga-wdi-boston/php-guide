@@ -29,6 +29,12 @@ therefore we'll use [php-version](https://github.com/wilmoore/php-version) to
 manage our PHP versions (similar to `rbenv` and `nvm`). Run the following from
 the command line:
 
+First, let's install PHP 7.0 onto our machines:
+
+```bash
+curl -s http://php-osx.liip.ch/install.sh | bash -s 7.0
+```
+
 **MacOS**
 
 ```bash
