@@ -149,16 +149,6 @@ Paste the following:
 
 **If you did not have `/etc/hosts`**, please `touch /etc/hosts` and paste all of the above.
 
-### Launching Vagrant
-
-Run `vagrant up` from `~/Homestead`.
-
-> Note: Vagrant will continue running in the background of your machine. If you
-> need to verify its status, run `vagrant status`. If you need to shut Vagrant
-> down, run `vagrant halt`.
-
-You can then navigate to your app from [http://homestead.app](http://homestead.app)
-
 ## Installing Laravel
 
 Laravel is the most popular choice for application development in PHP.
