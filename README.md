@@ -106,6 +106,10 @@ and **change**:
 folders:
     - map: ~/Code
       to: /home/vagrant/Code
+
+sites:
+    - map: homestead.app
+      to: /home/vagrant/Code/Laravel/public
 ```
 
 to:
@@ -114,7 +118,14 @@ to:
 folders:
     - map: ~/wdi/training/php-laravel
       to: /home/vagrant/Code
+
+sites:
+    - map: homestead.app
+      to: /home/vagrant/Code/public
 ```
+
+> Note: `vagrant up` will not launch successfully until a Laravel installation
+> is found at `~/wdi/training/php-laravel`. Hang tight for that.
 
 Feel free to read the [Laravel docs on Homestead](https://laravel.com/docs/5.3/homestead)
 to learn more about configuration options.
