@@ -163,6 +163,21 @@ You can then navigate to your app from [http://homestead.app](http://homestead.a
 
 Laravel is the most popular choice for application development in PHP.
 
+### Composer Installation
+
+To install Laravel, we'll use `composer` (the PHP equivalent to `bundle` or `npm`).
+
+From the command line, run the following:
+
+```bash
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('SHA384', 'composer-setup.php') === 'e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+```
+
+### Laravel Installation
+
 -  From the command line, run `composer global require "laravel/installer"`
 -  Then, `atom ~/.bashrc` and paste the following:
 
